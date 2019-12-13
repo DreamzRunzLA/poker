@@ -7,7 +7,6 @@ require('card')
 #Check if card can display it's number and suit
 
 describe Card do
-    describe ".num" do
-        it "works well"
-    end
+    subject { Card.new(13, "Hearts")}
+    
 end
