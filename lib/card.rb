@@ -10,7 +10,7 @@ class Card
         self.confirm_card()
     end
 
-    def confirm_card()
+    def confirm_card
         if VALS.include?(self.val) == false
             raise ArgumentError.new("invalid value")
         elsif SUITS.include?(self.suit) == false
@@ -20,8 +20,8 @@ class Card
         end
     end
 
-    def display_card()
-        p "#{self.val} of #{self.suit}"
+    def to_s
+        return "#{self.val} of #{self.suit}"
     end
 
 end

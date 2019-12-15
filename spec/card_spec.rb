@@ -25,6 +25,6 @@ describe Card do
     end
 
     it "displays the card properly" do
-        expect(subject.display_card).to eq("10 of HEARTS")
+        expect(subject.to_s).to eq("10 of HEARTS")
     end
 end
