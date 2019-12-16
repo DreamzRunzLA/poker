@@ -101,4 +101,9 @@ describe Deck do
         expect(minideck.cards.length).to eq(3)
     end
 
+    it "draws the correct amount of cards and returns into a list" do
+        expect(subject.draw(5).length).to eq(5)
+        expect(subject.draw(5).is_a?(Array)).to eq(true)
+    end
+
 end

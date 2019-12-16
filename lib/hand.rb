@@ -2,17 +2,34 @@
 # Logic of which hand beats which would go here.
 
 class Hand
+    attr_reader :hand
+
     def initialize(hand = [])
         @hand = hand
     end
 
-    def create_hand(arr)
-        if @hand.length == 2
-            raise ArgumentError.new('hand is full')
-        elsif arr.length != 2
-            raise ArgumentError.new('can only draw 2 cards')
+    def hand_discard(pos)
+        if pos.is_a?(Integer) != true
+            raise ArgumentError.new("invalid position, try again")
         else
-            @hand.concat(arr)
+            @hand.delete_at(pos)
+            p "Remaining cards in hand:"
+            return self.show_hand
+        end
+    end
+
+    def hand_concat(arr)
+        @hand.concat(arr)
+        if @hand.length != 5
+            raise ArgumentError.new("too many/too few cards")
+        else
+            return
+        end
+    end
+
+    def show_hand
+        @hand.each do |card|
+            p card.to_s + ", Position: " + @hand.index(card).to_s
         end
     end
 

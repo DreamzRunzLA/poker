@@ -21,7 +21,7 @@ class Deck
 
     def show_deck()
         self.cards.each do |card|
-            card.display_card
+            p card.to_s
         end
     end
 
@@ -37,8 +37,12 @@ class Deck
         return simple
     end
 
-    def draw()
-        @cards.shift
+    def draw(num=1)
+        ans = []
+        num.times do
+            ans << @cards.shift
+        end
+        return ans
     end
 
 end
