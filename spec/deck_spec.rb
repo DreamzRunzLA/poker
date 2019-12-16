@@ -8,6 +8,8 @@ require('deck')
 
 describe Deck do
     subject { Deck.new() }
+    let(:minideck) {Deck.new([double("Card", :val=>'2', :suit=>'HEARTS'),
+    double("Card", :val=>'K', :suit=>'DIAMONDS'), double("Card", :val=>'10', :suit=>'CLUBS') ])}
 
     it "initializes as a Deck" do
         expect(subject).to be_a(Deck)
@@ -93,6 +95,10 @@ describe Deck do
     it "can take cards as an argument" do
         test_deck = Deck.new(test_cards)
         expect(test_deck.cards.length).to eq(3)
+    end
+
+    it "can handle mini decks" do 
+        expect(minideck.cards.length).to eq(3)
     end
 
 end
